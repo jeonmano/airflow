@@ -9,9 +9,9 @@ with DAG(
     start_date=pendulum.datetime(2021,1,1,tz="Asia/Seoul"),
     catchup=False,
 ) as dag:
-    send_email_task = EmailOperator(
-        task_id='send_email_task'
-        to='junmh87@naver.com'
-        subject='Airflow 성공메일'
-        html_content='airflow 작업이 완료 되었습니다'
+    send_email_task = EmailOperator (
+        task_id='send_email_task',
+        to='junmh87@naver.com',
+        subject='Airflow 성공메일',
+        html_content='airflow 작업이 완료 되었습니다',
     )
