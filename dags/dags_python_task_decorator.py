@@ -6,7 +6,7 @@ import random
 from airflow.decorators import task
 
 with DAG(
-    dag_id="example_python_task_decorator",
+    dag_id="dags_python_task_decorator",
     schedule=None,
     start_date=pendulum.datetime(2023, 3, 1, tz="Asia/Seoul"),
     catchup=False,
