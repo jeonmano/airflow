@@ -21,7 +21,7 @@ with DAG (
         to='junmh87@naver.com',
         subject='{{data_interval_end.in_timezone("Asia/Seoul") | ds}} some logic 처리 결과',
         html_content='{{data_interval_end.in_timezone("Asia/Seoul") | ds}} 처리 결과는 <br> \
-            {{ti.xcom_pull(task_ids="choice_task)}} 했습니다 <br>'
+            {{ti.xcom_pull(task_ids="choice_task")}} 했습니다 <br>'
     )
 
     some_logic() >> send_email
