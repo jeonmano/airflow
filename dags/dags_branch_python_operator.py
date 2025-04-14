@@ -26,8 +26,6 @@ with DAG(
         python_callable=select_random
     )
 
-    python_branch_task >> ['task_a','task_b','task_c']
-
     def common_func(**kwargs):
         print(kwargs['selected'])
 
@@ -49,3 +47,5 @@ with DAG(
         op_kwargs={'selected':'C'}
     )
 
+
+python_branch_task >> [task_a,task_b,task_c]
