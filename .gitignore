@@ -1,0 +1,15 @@
+# Airflow 자동 생성 파일 및 로그
+logs/
+airflow.db
+airflow-webserver.pid
+
+# Python 가상 환경 및 캐시
+airflow_env/
+__pycache__/
+*.pyc
+
+# 설정 파일 (환경 변수로 관리할 예정이므로 제외 권장)
+airflow.cfg
+
+# OS 관련
+.DS_Store
