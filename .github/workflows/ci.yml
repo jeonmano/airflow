@@ -1,0 +1,27 @@
+name: Airflow CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 코드를 체크아웃합니다
+      uses: actions/checkout@v3
+
+    - name: 파이썬 환경을 설정합니다 (3.12 버전)
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.12'
+
+    - name: 필요한 라이브러리를 설치합니다
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: DAG 무결성 테스트를 실행합니다
+      run: |
+        # PYTHONPATH를 설정하여 dags 폴더를 인식하게 합니다.
+        export PYTHONPATH=$PYTHONPATH:$(pwd)
+        python tests/test_dag_integrity.py
